@@ -32,12 +32,17 @@ Analyze pay stubs for wage theft indicators: minimum wage violations, overtime m
             },
             {
                 "role": "user",
-                "content": f"""Analyze this document titled "{title}" and provide:
+                "content": f"""Analyze this pay stub titled "{title}" and extract:
 
-1. A concise summary (2-3 paragraphs)
-2. The contract/document type (e.g., NDA, service agreement, employment contract, lease, invoice, etc.)
-3. 5 key insights as bullet points
-4. Risk flags — any clauses or terms that could be problematic for the signing party (unfavorable terms, vague language, missing protections, unusual penalties, etc.)
+1. A concise summary (2-3 paragraphs) of what this pay stub shows
+2. The stub type (e.g., "Weekly Pay Stub", "Biweekly Pay Stub", "Monthly Pay Stub", "Other")
+3. Employer name
+4. Pay period (start and end dates if visible)
+5. Earnings breakdown: gross pay, net pay, hourly rate, hours worked, overtime hours
+6. List of deductions with name, type (tax/benefit/employer/other), and amount
+7. Any wage theft violations found — with description, severity (high/medium/low), and amount owed
+8. 5 key insights as bullet points
+9. Total amount owed to the worker (0 if no violations)
 
 Document text:
 {text[:15000]}
@@ -45,9 +50,24 @@ Document text:
 Respond in this exact JSON format:
 {{
   "summary": "...",
-  "contract_type": "...",
+  "stub_type": "...",
+  "employer": "...",
+  "pay_period": "...",
+  "earnings": {{
+    "gross_pay": 0,
+    "net_pay": 0,
+    "hourly_rate": 0,
+    "hours_worked": 0,
+    "overtime_hours": 0
+  }},
+  "deductions": [
+    {{"name": "...", "type": "tax|benefit|employer|other", "amount": 0}}
+  ],
+  "violations": [
+    {{"description": "...", "severity": "high|medium|low", "amount_owed": 0}}
+  ],
   "key_insights": ["insight 1", "insight 2", ...],
-  "risk_flags": ["risk 1", "risk 2", ...]
+  "total_owed": 0
 }}""",
             },
         ],
@@ -57,9 +77,14 @@ Respond in this exact JSON format:
     except (json.JSONDecodeError, IndexError, TypeError):
         return {
             "summary": response.choices[0].message.content or "",
-            "contract_type": "unknown",
+            "stub_type": "unknown",
+            "employer": "",
+            "pay_period": "",
+            "earnings": {},
+            "deductions": [],
+            "violations": [],
             "key_insights": [],
-            "risk_flags": [],
+            "total_owed": 0,
         }
 
 
