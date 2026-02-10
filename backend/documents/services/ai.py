@@ -102,7 +102,7 @@ def answer_question(question: str, documents: list[dict]) -> str:
         messages=[
             {
                 "role": "system",
-                "content": "You are ContractSafe, an AI contract assistant. Answer questions based on the provided contract documents. Be specific, cite clauses when possible, and flag any risks. If the answer isn't in the documents, say so clearly.",
+                "content": "You are WageGuard, an AI wage theft advisor. Answer questions about the uploaded pay stubs. Reference specific numbers from the stubs, explain deductions, check overtime and minimum wage compliance, and flag anything suspicious. If the answer isn't in the documents, say so clearly.",
             },
             {
                 "role": "user",
