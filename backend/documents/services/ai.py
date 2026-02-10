@@ -1,7 +1,4 @@
-"""AI service — OpenAI GPT-4 for pay stub analysis, wage theft detection, Q&A (RAG pattern).
-
-WageGuard — AI Wage Theft Detector for DeveloperWeek 2026 Hackathon.
-"""
+# openai helpers for pay stub analysis
 
 import json
 from openai import OpenAI
@@ -13,14 +10,25 @@ def _client():
 
 
 def analyze_paystub(text: str, title: str) -> dict:
-    """Analyze a pay stub and return summary, risk flags, insights."""
     response = _client().chat.completions.create(
         model="gpt-4o",
         response_format={"type": "json_object"},
         messages=[
             {
                 "role": "system",
-                "content": "You are WageGuard, an AI pay stub analyst and wage theft detector. Always respond in valid JSON.",
+                "content": """You are WageGuard, an AI pay stub analyst and wage theft detector. Always respond in valid JSON.
+
+You have deep knowledge of US labor law:
+- Federal minimum wage: $7.25/hr (states may be higher)
+- Overtime: 1.5x regular rate after 40 hours/week (FLSA)
+- FICA taxes: 7.65% employee share (6.2% Social Security + 1.45% Medicare)
+- Employers cannot deduct for breakage, shortages, or uniforms below minimum wage
+- Tips cannot be counted toward minimum wage beyond tip credit ($2.13/hr federal tipped minimum)
+- Pay stubs must show hours worked, pay rate, deductions
+- Final paycheck laws vary by state
+- Meal/rest break deductions must correspond to actual breaks taken
+
+Analyze pay stubs for wage theft indicators: minimum wage violations, overtime miscalculation, illegal deductions, misclassified workers, unreported hours, and tax withholding errors.""",
             },
             {
                 "role": "user",
@@ -56,7 +64,6 @@ Respond in this exact JSON format:
 
 
 def answer_question(question: str, documents: list[dict]) -> str:
-    """RAG-style Q&A over contract documents."""
     context_parts = []
     for doc in documents:
         text = doc.get("extracted_text", "") or ""
