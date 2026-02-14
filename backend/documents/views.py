@@ -136,3 +136,108 @@ def upload_document(request):
     thread.start()
 
     return Response({"id": doc_id, "status": "uploading", "title": doc["title"]})
+
+
+@api_view(["GET"])
+def list_documents(request):
+    col = get_collection()
+    docs = list(col.find().sort("uploaded_at", -1))
+    return Response(
+        [
+            {
+                "id": d["_id"],
+                "title": d.get("title", ""),
+                "file_name": d.get("file_name", ""),
+                "file_size": d.get("file_size", 0),
+                "uploaded_at": d.get("uploaded_at", ""),
+                "status": d.get("status", ""),
+                "summary": d.get("summary"),
+                "key_insights": d.get("key_insights", []),
+                "violations": d.get("violations", []),
+                "stub_type": d.get("stub_type"),
+                "employer": d.get("employer"),
+                "pay_period": d.get("pay_period"),
+                "earnings": d.get("earnings"),
+                "deductions": d.get("deductions", []),
+                "total_owed": d.get("total_owed", 0),
+            }
+            for d in docs
+        ]
+    )
+
+
+@api_view(["GET", "DELETE"])
+def document_detail(request, doc_id):
+    col = get_collection()
+
+    if request.method == "DELETE":
+        result = col.delete_one({"_id": doc_id})
+        if result.deleted_count == 0:
+            return Response({"error": "Not found"}, status=status.HTTP_404_NOT_FOUND)
+        return Response({"status": "deleted"})
+
+    doc = col.find_one({"_id": doc_id})
+    if not doc:
+        return Response({"error": "Not found"}, status=status.HTTP_404_NOT_FOUND)
+
+    return Response(
+        {
+            "id": doc["_id"],
+            "title": doc.get("title", ""),
+            "file_name": doc.get("file_name", ""),
+            "file_size": doc.get("file_size", 0),
+            "uploaded_at": doc.get("uploaded_at", ""),
+            "status": doc.get("status", ""),
+            "summary": doc.get("summary"),
+            "key_insights": doc.get("key_insights", []),
+            "violations": doc.get("violations", []),
+            "stub_type": doc.get("stub_type"),
+            "employer": doc.get("employer"),
+            "pay_period": doc.get("pay_period"),
+            "earnings": doc.get("earnings"),
+            "deductions": doc.get("deductions", []),
+            "total_owed": doc.get("total_owed", 0),
+            "extracted_text": doc.get("extracted_text"),
+            "error_message": doc.get("error_message"),
+        }
+    )
+
+
+@api_view(["POST"])
+def query_documents(request):
+    question = request.data.get("question", "")
+    document_ids = request.data.get("document_ids", [])
+
+    if not question:
+        return Response({"error": "No question provided"}, status=status.HTTP_400_BAD_REQUEST)
+    if not settings.OPENAI_API_KEY:
+        return Response({"error": "AI not configured"}, status=status.HTTP_503_SERVICE_UNAVAILABLE)
+
+    col = get_collection()
+    if document_ids:
+        docs = list(col.find({"_id": {"$in": document_ids}, "extracted_text": {"$ne": None}}))
+    else:
+        docs = list(col.find({"extracted_text": {"$ne": None}}))
+
+    if not docs:
+        return Response({"error": "No documents available"}, status=status.HTTP_400_BAD_REQUEST)
+
+    answer = ai.answer_question(question, docs)
+    return Response(
+        {
+            "answer": answer,
+            "sources": [d.get("title", "") for d in docs],
+        }
+    )
+
+
+@api_view(["GET"])
+def deepgram_token(request):
+    if not settings.DEEPGRAM_API_KEY:
+        return Response({"error": "Deepgram not configured"}, status=status.HTTP_503_SERVICE_UNAVAILABLE)
+    return Response({"api_key": settings.DEEPGRAM_API_KEY})
+
+
+@api_view(["GET"])
+def health(request):
+    return Response({"status": "ok", "app": "WageGuard"})
