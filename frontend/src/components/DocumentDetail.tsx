@@ -2,6 +2,7 @@ import { DocumentInfo } from "../api";
 import {
   FileText,
   Loader2,
+  Lightbulb,
   AlertTriangle,
   Tag,
   CheckCircle2,
@@ -149,6 +150,104 @@ export default function DocumentDetail({ document }: Props) {
         </div>
       )}
 
+      {/* earnings breakdown */}
+      {document.earnings && (
+        <div className="mb-6">
+          <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
+            Earnings Breakdown
+          </h3>
+          <div className="grid grid-cols-3 gap-3">
+            <div className="bg-gray-50 rounded-lg p-3 text-center">
+              <p className="text-xs text-gray-400 mb-1">Gross Pay</p>
+              <p className="text-lg font-bold text-gray-800">
+                {formatMoney(document.earnings.gross_pay)}
+              </p>
+            </div>
+            <div className="bg-gray-50 rounded-lg p-3 text-center">
+              <p className="text-xs text-gray-400 mb-1">Net Pay</p>
+              <p className="text-lg font-bold text-gray-800">
+                {formatMoney(document.earnings.net_pay)}
+              </p>
+            </div>
+            <div className="bg-gray-50 rounded-lg p-3 text-center">
+              <p className="text-xs text-gray-400 mb-1">Hourly Rate</p>
+              <p className="text-lg font-bold text-gray-800">
+                {formatMoney(document.earnings.hourly_rate)}
+              </p>
+            </div>
+            <div className="bg-gray-50 rounded-lg p-3 text-center">
+              <p className="text-xs text-gray-400 mb-1">Hours Worked</p>
+              <p className="text-lg font-bold text-gray-800">
+                {document.earnings.hours_worked ?? 0}
+              </p>
+            </div>
+            <div className="bg-gray-50 rounded-lg p-3 text-center">
+              <p className="text-xs text-gray-400 mb-1">Overtime Hours</p>
+              <p className="text-lg font-bold text-gray-800">
+                {document.earnings.overtime_hours ?? 0}
+              </p>
+            </div>
+            <div className="bg-gray-50 rounded-lg p-3 text-center">
+              <p className="text-xs text-gray-400 mb-1">Overtime Pay</p>
+              <p className="text-lg font-bold text-gray-800">
+                {formatMoney(document.earnings.overtime_pay)}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* deductions table */}
+      {document.deductions && document.deductions.length > 0 && (
+        <div className="mb-6">
+          <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
+            Deductions ({document.deductions.length})
+          </h3>
+          <div className="border rounded-lg overflow-hidden">
+            <table className="w-full text-sm">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="text-left px-4 py-2 font-medium text-gray-500">
+                    Name
+                  </th>
+                  <th className="text-left px-4 py-2 font-medium text-gray-500">
+                    Type
+                  </th>
+                  <th className="text-right px-4 py-2 font-medium text-gray-500">
+                    Amount
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y">
+                {document.deductions.map((d, i) => (
+                  <tr key={i}>
+                    <td className="px-4 py-2 text-gray-700">{d.name}</td>
+                    <td className="px-4 py-2">
+                      <span
+                        className={`px-2 py-0.5 text-xs font-medium rounded ${
+                          d.type === "tax"
+                            ? "bg-blue-100 text-blue-700"
+                            : d.type === "benefit"
+                            ? "bg-green-100 text-green-700"
+                            : d.type === "employer"
+                            ? "bg-purple-100 text-purple-700"
+                            : "bg-gray-100 text-gray-600"
+                        }`}
+                      >
+                        {d.type}
+                      </span>
+                    </td>
+                    <td className="px-4 py-2 text-right font-mono text-gray-700">
+                      {formatMoney(d.amount)}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
+
       {/* summary */}
       {document.summary && (
         <div className="mb-6">
@@ -158,6 +257,41 @@ export default function DocumentDetail({ document }: Props) {
           <p className="text-gray-700 leading-relaxed whitespace-pre-wrap">
             {document.summary}
           </p>
+        </div>
+      )}
+
+      {/* key insights */}
+      {document.key_insights && document.key_insights.length > 0 && (
+        <div className="mb-6">
+          <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
+            Key Insights
+          </h3>
+          <ul className="space-y-2">
+            {document.key_insights.map((insight, i) => (
+              <li key={i} className="flex items-start gap-2">
+                <Lightbulb className="w-4 h-4 text-yellow-500 mt-0.5 shrink-0" />
+                <span className="text-gray-700 text-sm">{insight}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {/* extracted text */}
+      {document.extracted_text && (
+        <div>
+          <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
+            Extracted Text
+          </h3>
+          <div className="bg-gray-50 rounded-lg p-4 text-sm text-gray-600 max-h-96 overflow-y-auto whitespace-pre-wrap font-mono">
+            {document.extracted_text.slice(0, 5000)}
+            {document.extracted_text.length > 5000 && (
+              <span className="text-gray-400">
+                {"\n\n"}... ({document.extracted_text.length - 5000} more
+                characters)
+              </span>
+            )}
+          </div>
         </div>
       )}
 
