@@ -1,8 +1,8 @@
-# WageGuard
+# WageShield
 
 wage theft costs US workers $50 billion a year — more than all robberies combined. yet there's no free tool for workers to check if they're getting ripped off.
 
-WageGuard analyzes your pay stubs and flags violations — underpayment, missing overtime, illegal deductions, sketchy withholdings. upload a pay stub, get answers.
+WageShield analyzes your pay stubs and flags violations — underpayment, missing overtime, illegal deductions, sketchy withholdings. upload a pay stub, get answers.
 
 ## what it does
 - upload pay stubs (pdf, txt, images)

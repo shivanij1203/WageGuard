@@ -52,7 +52,7 @@ export default function App() {
             <DollarSign className="w-5 h-5 text-white" />
           </div>
           <div>
-            <h1 className="font-bold text-lg leading-tight">WageGuard</h1>
+            <h1 className="font-bold text-lg leading-tight">WageShield</h1>
             <p className="text-xs text-gray-400">AI Wage Theft Detector</p>
           </div>
         </div>

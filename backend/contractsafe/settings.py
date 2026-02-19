@@ -1,4 +1,4 @@
-# django settings for wageguard
+# django settings for wageshield
 
 import os
 from pathlib import Path
@@ -64,7 +64,7 @@ DATABASES = {
 
 # mongodb for document storage
 MONGODB_URI = os.getenv("MONGODB_URI", "mongodb://localhost:27017")
-MONGODB_DB = os.getenv("MONGODB_DB", "wageguard")
+MONGODB_DB = os.getenv("MONGODB_DB", "wageshield")
 
 CORS_ALLOW_ALL_ORIGINS = True
 

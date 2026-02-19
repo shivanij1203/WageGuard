@@ -18,7 +18,7 @@ export default function ChatInterface({ documentIds }: Props) {
     {
       role: "assistant",
       content:
-        "Hi! I'm WageGuard. Upload your pay stubs and ask me anything — I'll check for wage theft, explain deductions, and help you understand your rights. Use the mic for voice input.",
+        "Hi! I'm WageShield. Upload your pay stubs and ask me anything — I'll check for wage theft, explain deductions, and help you understand your rights. Use the mic for voice input.",
     },
   ]);
   const [input, setInput] = useState("");

@@ -16,7 +16,7 @@ def analyze_paystub(text: str, title: str) -> dict:
         messages=[
             {
                 "role": "system",
-                "content": """You are WageGuard, an AI pay stub analyst and wage theft detector. Always respond in valid JSON.
+                "content": """You are WageShield, an AI pay stub analyst and wage theft detector. Always respond in valid JSON.
 
 You have deep knowledge of US labor law:
 - Federal minimum wage: $7.25/hr (states may be higher)
@@ -102,7 +102,7 @@ def answer_question(question: str, documents: list[dict]) -> str:
         messages=[
             {
                 "role": "system",
-                "content": "You are WageGuard, an AI wage theft advisor. Answer questions about the uploaded pay stubs. Reference specific numbers from the stubs, explain deductions, check overtime and minimum wage compliance, and flag anything suspicious. If the answer isn't in the documents, say so clearly.",
+                "content": "You are WageShield, an AI wage theft advisor. Answer questions about the uploaded pay stubs. Reference specific numbers from the stubs, explain deductions, check overtime and minimum wage compliance, and flag anything suspicious. If the answer isn't in the documents, say so clearly.",
             },
             {
                 "role": "user",

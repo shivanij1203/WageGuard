@@ -240,4 +240,4 @@ def deepgram_token(request):
 
 @api_view(["GET"])
 def health(request):
-    return Response({"status": "ok", "app": "WageGuard"})
+    return Response({"status": "ok", "app": "WageShield"})
