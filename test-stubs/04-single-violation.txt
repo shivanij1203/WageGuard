@@ -1,0 +1,44 @@
+========================================
+       BRIGHTSIDE RETAIL INC.
+         EMPLOYEE PAY STUB
+========================================
+
+Employee: Sarah Mitchell            ID: BR-7721
+Position: Sales Associate           Dept: Floor Sales
+Pay Period: 02/03/2025 - 02/16/2025 (Biweekly)
+Pay Date: 02/21/2025
+Check #: 044891
+
+----------------------------------------
+EARNINGS
+----------------------------------------
+Regular Hours:      40.0 hrs @ $14.00/hr   =  $560.00
+Overtime Hours:      3.0 hrs @ $21.00/hr   =   $63.00
+                                           -----------
+GROSS PAY:                                   $623.00
+
+----------------------------------------
+DEDUCTIONS
+----------------------------------------
+Federal Income Tax                         =   $56.07
+State Income Tax (OH)                      =   $24.92
+Social Security (6.2%)                     =   $38.63
+Medicare (1.45%)                           =    $9.03
+Health Insurance (Employee)                =   $62.00
+Cash Register Shortage (02/10)             =   $85.00
+                                           -----------
+TOTAL DEDUCTIONS:                            $275.65
+
+----------------------------------------
+NET PAY:                                     $347.35
+----------------------------------------
+
+Payment Method: Direct Deposit
+Bank: ****3307
+
+YTD Gross: $1,246.00   YTD Deductions: $551.30   YTD Net: $694.70
+
+Brightside Retail Inc.
+4520 Market Street, Columbus, OH 43215
+EIN: 31-4829175
+========================================

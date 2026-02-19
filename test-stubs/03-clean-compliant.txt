@@ -1,0 +1,62 @@
+========================================
+       SUMMIT TECH SOLUTIONS INC.
+          EMPLOYEE PAY STUB
+========================================
+
+Employee: David Park               ID: ST-2847
+Position: Software Developer       Dept: Engineering
+Pay Period: 02/01/2025 - 02/15/2025 (Semi-Monthly)
+Pay Date: 02/20/2025
+Check #: 991204
+
+----------------------------------------
+EARNINGS
+----------------------------------------
+Regular Salary (Semi-Monthly)              = $3,750.00
+                                           -----------
+GROSS PAY:                                  $3,750.00
+
+----------------------------------------
+DEDUCTIONS - TAXES
+----------------------------------------
+Federal Income Tax                         =   $468.75
+State Income Tax (CA)                      =   $243.75
+Social Security (6.2%)                     =   $232.50
+Medicare (1.45%)                           =    $54.38
+CA SDI (1.1%)                              =    $41.25
+                                           -----------
+Total Taxes:                                $1,040.63
+
+----------------------------------------
+DEDUCTIONS - BENEFITS
+----------------------------------------
+Health Insurance (PPO - Employee)          =   $125.00
+Dental Insurance                           =    $18.50
+Vision Insurance                           =     $8.75
+401(k) Contribution (6%)                   =   $225.00
+                                           -----------
+Total Benefits:                              $377.25
+
+                                           -----------
+TOTAL DEDUCTIONS:                           $1,417.88
+
+----------------------------------------
+NET PAY:                                    $2,332.12
+----------------------------------------
+
+Payment Method: Direct Deposit
+Bank: ****7293
+
+-------- Year-to-Date --------
+YTD Gross:      $7,500.00
+YTD Fed Tax:      $937.50
+YTD State Tax:    $487.50
+YTD SS:           $465.00
+YTD Medicare:     $108.76
+YTD 401(k):      $450.00
+YTD Net:       $4,664.24
+
+Summit Tech Solutions Inc.
+2100 Innovation Way, San Jose, CA 95134
+EIN: 94-3817295
+========================================

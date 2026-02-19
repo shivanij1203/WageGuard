@@ -1,0 +1,53 @@
+========================================
+     GREENFIELD LOGISTICS INC.
+        PAYROLL STATEMENT
+========================================
+
+Employee Name: James Carter         Employee #: 10234
+Job Title: Warehouse Associate      Department: Shipping
+Pay Period: 03/01/2025 - 03/15/2025 (Semi-Monthly)
+Check Date: 03/20/2025
+Check #: 078412
+
+========================================
+              HOURS & EARNINGS
+========================================
+                    Hours    Rate      Amount
+Regular Pay         40.0    $15.00    $600.00
+Regular Pay         8.0     $15.00    $120.00
+Saturday Shift      6.0     $15.00     $90.00
+                    ----              --------
+Totals              54.0              $810.00
+
+GROSS EARNINGS:                       $810.00
+
+========================================
+              DEDUCTIONS
+========================================
+Federal Withholding                    $81.00
+State Tax (TX)                          $0.00
+Social Security                        $50.22
+Medicare                               $11.75
+Health Insurance (Employee Share)      $85.00
+Parking Fee                            $40.00
+Safety Equipment Rental                $22.50
+                                      --------
+TOTAL DEDUCTIONS:                     $290.47
+
+========================================
+NET PAY:                              $519.53
+========================================
+
+Direct Deposit to: Chase ****8833
+
+-------- Year-to-Date --------
+YTD Gross:    $4,860.00
+YTD FedTax:     $486.00
+YTD SS:         $301.32
+YTD Medicare:    $70.47
+YTD Net:      $3,117.18
+
+Greenfield Logistics Inc.
+900 Commerce Park Dr, Dallas, TX 75247
+Federal EIN: 75-3928174
+========================================

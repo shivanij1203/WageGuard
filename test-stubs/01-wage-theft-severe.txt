@@ -1,0 +1,46 @@
+========================================
+        QUIKBITE RESTAURANTS LLC
+           EMPLOYEE PAY STUB
+========================================
+
+Employee: Maria Gonzalez          ID: EMP-4892
+Position: Line Cook               Dept: Kitchen
+Pay Period: 01/06/2025 - 01/19/2025 (Biweekly)
+Pay Date: 01/24/2025
+
+----------------------------------------
+EARNINGS
+----------------------------------------
+Regular Hours:      52.0 hrs @ $6.50/hr    =  $338.00
+Overtime Hours:      0.0 hrs @ $0.00/hr    =    $0.00
+Tips Reported:                              =   $45.00
+                                           -----------
+GROSS PAY:                                   $383.00
+
+----------------------------------------
+DEDUCTIONS
+----------------------------------------
+Federal Income Tax                          =   $28.75
+State Income Tax                            =   $11.49
+Social Security (6.2%)                      =   $23.75
+Medicare (1.45%)                            =    $5.55
+Uniform Fee                                 =   $25.00
+Register Shortage (01/12)                   =   $47.50
+Breakage Fee - Plate (01/08)                =   $12.00
+"Training Materials"                        =   $35.00
+                                           -----------
+TOTAL DEDUCTIONS:                            $189.04
+
+----------------------------------------
+NET PAY:                                     $193.96
+----------------------------------------
+
+Payment Method: Direct Deposit
+Bank: ****4521
+
+YTD Gross: $383.00   YTD Deductions: $189.04   YTD Net: $193.96
+
+QuikBite Restaurants LLC
+1847 Industrial Blvd, Houston, TX 77001
+EIN: 84-2947561
+========================================
