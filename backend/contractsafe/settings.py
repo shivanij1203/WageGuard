@@ -80,10 +80,6 @@ FOXIT_CLIENT_ID = os.getenv("FOXIT_CLIENT_ID", "")
 FOXIT_CLIENT_SECRET = os.getenv("FOXIT_CLIENT_SECRET", "")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
 DEEPGRAM_API_KEY = os.getenv("DEEPGRAM_API_KEY", "")
-SANITY_PROJECT_ID = os.getenv("SANITY_PROJECT_ID", "")
-SANITY_DATASET = os.getenv("SANITY_DATASET", "production")
-SANITY_API_TOKEN = os.getenv("SANITY_API_TOKEN", "")
-
 # file uploads
 UPLOAD_DIR = BASE_DIR / "uploads"
 UPLOAD_DIR.mkdir(exist_ok=True)

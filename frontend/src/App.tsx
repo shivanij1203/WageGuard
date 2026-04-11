@@ -117,7 +117,7 @@ export default function App() {
       {/* footer */}
       <footer className="border-t px-6 py-2 text-xs text-gray-400 flex justify-between">
         <span>DeveloperWeek 2026 Hackathon</span>
-        <span>Powered by GPT-4 + Deepgram + Sanity MCP</span>
+        <span>Powered by GPT-4 + Deepgram</span>
       </footer>
     </div>
   );
